@@ -1,0 +1,269 @@
+ testLexisCSV.c  reads a file called in.csv, it will parse the tokens and put
+data values next to the row heading you would see in MS Excel. I am not sure 
+why this was done but meh. I think I was trying to make test data.
+
+
+Input Output CSV Parse Test
+"00000000000000000000","00000000000000000000","000000000000000000000000000000","000000000000000000000000000000","000000000000000000000000000000","00000","00000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","0000000000000000000000000000","00","0000000000","0000000000","0000000000","0000000000","0000000000","0000000000","00000000","00000000","00000000000000000","00","000000000","00","00","00000000","00000000","000000","000000","000","00000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000"
+Size of Input  : 1687
+Size of Output : 5024
+Size of        : 495
+Size of        : 405
+Size of        : 420
+Size of        : 420
+Size of        : 420
+Size of        : 690
+Size of        : 1443
+Size of        : 232
+Size of        : 161
+ A CustAccntNum
+ B UniqueNum
+ C RecordType
+ D ADL_Number
+ E Client_Defined_Score
+ F Returned_Process
+ G subj_first_1
+ H subj_middle_1
+ I subj_last_1
+ J subj_suffix_1
+ K subj_best_ssn
+ L subj_DOB
+ M subj_address_1
+ N subj_city_1
+ O subj_state_1
+ P subj_zipcode_1
+ Q 1_Last_Seen_Date_NCOA_Move_Date
+ R CASS_DPV_Flag_1_NCOA
+ S subj_address_2
+ T subj_city_2
+ U subj_state_2
+ V subj_zipcode_2
+ W 2_Last_Seen_Date_NCOA_Move_Date
+ X CASS_DPV_Flag_2_NCOA
+ Y subj_address_3
+ Z subj_city_3
+AA subj_state_3
+AB subj_zipcode_3
+AC 3_Last_Seen_Date_NCOA_Move_Date
+AD CASS_DPV_Flag_3_NCOA
+AE subj_address_4
+AF subj_city_4
+AG subj_state_4
+AH subj_zipcode_4
+AI 4_Last_Seen_Date_NCOA_Move_Date
+AJ CASS_DPV_Flag_4_NCOA
+AK subj_address_5
+AL subj_city_5
+AM subj_state_5
+AN subj_zipcode_5
+AO 5_Last_Seen_Date_NCOA_Move_Date
+AP CASS_DPV_Flag_5_NCOA
+AQ subj_phone_1
+AR subj_phone_name_1
+AS subj_phone_type_1
+AT subj_type1SwitchType
+AU subj_phone_2
+AV subj_phone_name_2
+AW subj_phone_type_2
+AX subj_type2SwitchType
+AY subj_phone_3
+AZ subj_phone_name_3
+BA subj_phone_type_3
+BB subj_type3SwitchType
+BC subj_phone_4
+BD subj_phone_name_4
+BE subj_phone_type_4
+BF subj_type4SwitchType
+BG subj_phone_5
+BH subj_phone_name_5
+BI subj_phone_type_5
+BJ subj_type5SwitchType
+BK bk_case_number
+BL bk_chapter_code
+BM bk_file_date
+BN bk_status_date
+BO bk_reinstated_date
+BP bk_closed_date
+BQ bk_disp
+BR bk_match_code
+BS dcd_reported
+BT dcd_subj_first
+BU dcd_subj_last
+BV dcd_subj_dob
+BW dcd_subj_dod
+BX dcd_zip_gvt_benefit_1
+BY dcd_zip_death_benefit_1
+BZ flag_address_verified
+CA flag_phone_verified
+CB flag_property
+CC flag_address_income_est
+CD flag_PossibleLitigiousDebtor
+CE flag_mvr
+CF flag_relatives
+CG flag_associates
+CH flag_people_at_work
+CI flag_jgt_lien
+CJ reserved_1
+CK LN_Custom_Score
+CL Hosted_Solution_tactics_codes
+CM Stability_Score
+CN Contactability_Score
+CO RecoverScore
+CP rel_first_name_1
+CQ rel_last_name_1
+CR rel_address_1
+CS rel_city_1
+CT rel_state_1
+CU rel_zipcode_1
+CV rel_phone_1
+CW rel_first_name_2
+CX rel_last_name_2
+CY rel_address_2
+CZ rel_city_2
+DA rel_state_2
+DB rel_zipcode_2
+DC rel_phone_2
+DD rel_first_name_3
+DE rel_last_name_3
+DF rel_address_3
+DG rel_city_3
+DH rel_state_3
+DI rel_zipcode_3
+DJ rel_phone_3
+DK asso_first_name_1
+DL asso_last_name_1
+DM asso_address_1
+DN asso_city_1
+DO asso_state_1
+DP asso_zipcode_1
+DQ asso_phone_1
+DR asso_first_name_2
+DS asso_last_name_2
+DT asso_address_2
+DU asso_city_2
+DV asso_state_2
+DW asso_zipcode_2
+DX asso_phone_2
+DY asso_first_name_3
+DZ asso_last_name_3
+EA asso_address_3
+EB asso_city_3
+EC asso_state_3
+ED asso_zipcode_3
+EE asso_phone_3
+EF nearby_1_first_name
+EG nearby_1_last_name
+EH nearby_1_address
+EI nearby_1_city
+EJ nearby_1_state
+EK nearby_1_zipcode
+EL nearby_1_phone
+EM nearby_2_first_name
+EN nearby_2_last_name
+EO nearby_2_address
+EP nearby_2_city
+EQ nearby_2_state
+ER nearby_2_zipcode
+ES nearby_2_phone
+ET nearby_3_first_name
+EU nearby_3_last_name
+EV nearby_3_address
+EW nearby_3_city
+EX nearby_3_state
+EY nearby_3_zipcode
+EZ nearby_3_phone
+FA prop_1_parcel
+FB prop_1_owner_name
+FC prop_1_co_owner_name
+FD prop_1_property_address
+FE prop_1_property_city
+FF prop_1_property_state
+FG prop_1_property_zip
+FH prop_1_sale_date
+FI prop_1_sale_price
+FJ prop_1_total_value
+FK prop_1_type_financing
+FL prop_1_loan_term_months
+FM prop_1_foreclosure
+FN prop_1_refi_flag
+FO prop_1_equity_flag
+FP prop_1_assessment_match_land_use_code
+FQ prop_1_use_code
+FR prop_1_type
+FS prop_2_parcel
+FT prop_2_owner_name
+FU prop_2_co_owner_name
+FV prop_2_property_address
+FW prop_2_property_city
+FX prop_2_property_state
+FY prop_2_property_zip
+FZ prop_2_sale_date
+GA prop_2_sale_price
+GB prop_2_total_value
+GC prop_2_type_financing
+GD prop_2_loan_term_months
+GE prop_2_foreclosure
+GF prop_2_refi_flag
+GG prop_2_equity_flag
+GH prop_2_assessment_match_land_use_code
+GI prop_2_use_code
+GJ prop_2_type
+GK mvr_1_vehicle_desc
+GL mvr_1_lienholder_name
+GM mvr_1_tag
+GN mvr_1_vin
+GO mvr_1_owner_name_1
+GP mvr_1_owner_name_2
+GQ mvr_1_registrant_name_1
+GR mvr_1_registrant_name_2
+GS mvr_2_vehicle_desc
+GT mvr_2_lienholder_name
+GU mvr_2_tag
+GV mvr_2_vin
+GW mvr_2_owner_name_1
+GX mvr_2_owner_name_2
+GY mvr_2_registrant_name_1
+GZ mvr_2_registrant_name_2
+HA mvr_3_vehicle_desc
+HB mvr_3_lienholder_name
+HC mvr_3_tag
+HD mvr_3_vin
+HE mvr_3_owner_name_1
+HF mvr_3_owner_name_2
+HG mvr_3_registrant_name_1
+HH mvr_3_registrant_name_2
+HI paw_Count
+HJ paw_1_company
+HK paw_1_address
+HL paw_1_city
+HM paw_1_state
+HN paw_1_zip
+HO paw_1_phone
+HP paw_1_date
+HQ paw_1_conf_code
+HR jl_total_hit_count
+HS jl_1_debtor_name
+HT jl_1_filing_type
+HU jl_1_amount
+HV jl_1_filing_date
+HW jl_1_creditor
+HX jl_1_case_number
+HY reserved_2
+HZ reserved_3
+IA reserved_4
+IB reserved_5
+IC reserved_6
+ID reserved_7
+IE reserved_8
+IF reserved_9
+IG reserved_10
+IH reserved_11
+II reserved_12
+IJ reserved_13
+IK reserved_14
+IL reserved_15
+IM reserved_16
+IN reserved_17
+IO reserved_18
+IP reserved_19
+LINE NO     0, Tokens 250 ===========================
