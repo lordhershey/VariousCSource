@@ -1,0 +1,8 @@
+cnprint - washes some chars out of a string - I do not know why this exists.
+
+crunchDate - Doesn't have anything to do with dates, looks like it pulls integers out of a string like so:
+
+$ ./crunchDate this45ismy67andthinggs792_r
+a = 45
+a = 67
+a = 792
