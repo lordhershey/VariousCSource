@@ -1,0 +1,2 @@
+testconst.c - try to get a pointer to a defined constant and change it - core dumps would need to do something with mprotect to get it.
+
