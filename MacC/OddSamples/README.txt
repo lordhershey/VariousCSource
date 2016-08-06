@@ -136,3 +136,16 @@ Enter Weight 0.0 to 1.0 0.7
 1.81731
 5.00000
 5.00000
+
+readCodedArray.c was a thing I found attached to one of those spam
+email messages, it was written in JavaScriptr, I just wanted to see
+where they thing was trying to take me.
+
+$ ./readCodedArray.exe 3 69,70,71
+BCD
+
+3 values 3 numbers (could pass on first parameter and just count commas in
+list) it was trying to set the window location to the URL that was represented
+by a number array.
+
+

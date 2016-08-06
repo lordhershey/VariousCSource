@@ -1,6 +1,9 @@
  testLexisCSV.c  reads a file called in.csv, it will parse the tokens and put
 data values next to the row heading you would see in MS Excel. I am not sure 
-why this was done but meh. I think I was trying to make test data.
+why this was done but meh. I think I was trying to make test data. I am 
+pretty sure there is a bug floating around here as well but it may be better
+than the last csv parser. I do have a m,uch better one floating around but it
+will take some time to dig up.
 
 
 Input Output CSV Parse Test
