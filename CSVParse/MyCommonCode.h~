@@ -1,0 +1,155 @@
+#ifndef __MY_COMMON_CODE__
+#  define __MY_COMMON_CODE__
+
+#  define DASH "%s%s%s%s%s",C1,G_START,LINE,G_END,C0
+
+/* ###################################################################### */
+/*             Raw Token Parsing and Handling Structures                  */
+/* ###################################################################### */
+
+#  define CHARACTER_QUEUE_BUFFER_SIZE 50
+
+/*Will Hold All Characters readin*/
+struct CHARACTER_QUEUE
+{
+    char buffer[CHARACTER_QUEUE_BUFFER_SIZE];
+    int len;
+    struct CHARACTER_QUEUE *next;
+};
+
+#  define TOKEN_QUEUE_BUFFER_SIZE 20
+
+struct TOKEN_QUEUE
+{
+    char *token[TOKEN_QUEUE_BUFFER_SIZE];
+    int len;
+    struct TOKEN_QUEUE *next;
+};
+
+/* *INDENT-OFF* */
+/*
+   ############################################################
+   #           Library Prototype for Common Code              #
+   ############################################################
+*/
+
+struct GENERIC_CLIENT_LIST{
+  char code1[11];
+  char code2[11];
+  char client[8];
+  struct GENERIC_CLIENT_LIST *next;
+};
+
+#define GENERIC_CLIENTMAP_FILENAME "ClientMap.txt"
+
+struct ACTION_RESULT_LIST{
+  char AC[21];
+  char RC[21];
+  char Extra[21];
+  struct ACTION_RESULT_LIST *next;
+};
+
+#define ACTION_RESULT_FILENAME "ActionResult.txt"
+#define RETURN_CODE_TO_BI_CODE "ReturnToBi.txt"
+#define PAYMENT_MAP_FILENAME "DescriptionToPayCode.txt"
+/* *INDENT-ON* */
+
+/* *INDENT-OFF*
+   ############################################################
+   #           Library Prototype for Common Code              #
+   ############################################################
+   *INDENT-ON* */
+#ifndef MY_COMMON_CODE_PROTO
+
+int drawBasicScreen(void);
+int clearScreen(void);
+int printDashedLines(void);
+int titlef(int line, char *fmt, ...);
+
+int trimSpaceAndZeroFromEnd(char *s, int sz);
+int trimSpaceAndZeroFromBeginToEnd(char *s, int sz);
+
+int _same_page_wc(int page_no, int loop);
+int _case_pos(int x);
+
+int setCharField(char *fld, int size, const char *src);
+
+int validActionCode(char *actionCode, int mustExist);
+int getActionCode(char *actionCode);
+int validResultCode(char *resultCode, int mustExist);
+int getResultCode(char *resultCode);
+
+/*Change the Nature of this Function to Use 
+  a word array or something to know what flags are
+  acceptable*/
+int getStorageOption(char *pfield,
+                     int loc,
+                     int display,
+                     int hp,
+                     int wp,
+                     int mp,
+                     int op,
+                     int pd,
+                     int bs,
+                     int auxe,
+                     int auxa,
+                     int auxp,
+                     int auxm, 
+		     int auxd, 
+		     int bk, 
+		     int an, 
+		     int tr, 
+		     int dl,
+                     int ct,
+                     int st,
+                     int zp,
+                     int em, 
+		     int a1, 
+		     int a2, 
+		     int ss, 
+		     int fn, 
+		     int ln, 
+		     int lf);
+int getStringFieldFromArray(int loc,
+                            int len,
+                            char *f,
+                            int allowInvalid,
+                            int displayOnly, char array[50][50]);
+
+int enqueueCharacter(struct CHARACTER_QUEUE **head, char inChar);
+int dumpCharQueueToStr(char *str, struct CHARACTER_QUEUE *head);
+int freeCharacterQueue(struct CHARACTER_QUEUE **head);
+int enqueueToken(struct TOKEN_QUEUE **head, char *token);
+char *getTokenNumber(struct TOKEN_QUEUE *head, int tokenNumber);
+int freeTokenQueue(struct TOKEN_QUEUE **head);
+int fillTokensFromFile(int fd, 
+		       struct TOKEN_QUEUE **tokenHead,
+		       char delimiter, 
+		       int tokenLimit, 
+		       int *lineNumber,
+		       int newLineBreaks,
+		       char quote);
+
+int readClientMapFile(struct GENERIC_CLIENT_LIST **head);
+int getSizeOfClientMapList(struct GENERIC_CLIENT_LIST *head);
+struct GENERIC_CLIENT_LIST *newClientMapNode(struct GENERIC_CLIENT_LIST **head);
+int sortClientMapList(struct GENERIC_CLIENT_LIST **head);
+struct GENERIC_CLIENT_LIST *getClientMapNodeAt(struct GENERIC_CLIENT_LIST *head,
+					       int pos);
+struct GENERIC_CLIENT_LIST *getClientMapNodeByName(struct GENERIC_CLIENT_LIST *head,
+						    const char *code1, 
+						    const char *code2,
+						   const char *code3,
+						    int *pos);
+
+int readAcRcListFile(struct ACTION_RESULT_LIST **head,const char *filename);
+struct ACTION_RESULT_LIST *newAcRcNode(struct ACTION_RESULT_LIST **head);
+int getSizeOfAcRcList(struct ACTION_RESULT_LIST *head);
+struct ACTION_RESULT_LIST *getAcRcNodeAt(struct ACTION_RESULT_LIST *head,
+					 int pos);
+struct ACTION_RESULT_LIST *getAcRcByName(struct ACTION_RESULT_LIST *head,
+					 const char *code1, 
+					 const char *code2,
+					 int *pos);
+#endif
+#endif
